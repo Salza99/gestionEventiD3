@@ -11,8 +11,8 @@ public class Location {
     private String nome;
     @Column(name = "città")
     private String citta;
-    @OneToOne(mappedBy = "location", cascade = CascadeType.REMOVE)
-    private Evento evento;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Evento> evento;
 
     //Costruttori
 
@@ -42,11 +42,11 @@ public class Location {
         this.citta = citta;
     }
 
-    public Evento getEvento() {
+    public List<Evento> getEvento() {
         return evento;
     }
 
-    public void setEvento(Evento evento) {
+    public void setEvento(List<Evento> evento) {
         this.evento = evento;
     }
 

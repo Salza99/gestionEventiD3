@@ -1,9 +1,13 @@
 package org.example.entities.classDao;
 
+import org.example.entities.Concerto;
 import org.example.entities.Evento;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 
 public class EventoDao {
@@ -35,5 +39,10 @@ public class EventoDao {
             System.err.println(ex.getMessage());
             System.err.println("l'evento con id " + id + " non esiste");
         }
+    }
+    public List<Concerto> getConcertiInStreaming(boolean tf){
+        Query getAllStreamOrNoStreamQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :tf");
+        getAllStreamOrNoStreamQuery.setParameter("tf", tf);
+        return getAllStreamOrNoStreamQuery.getResultList();
     }
 }

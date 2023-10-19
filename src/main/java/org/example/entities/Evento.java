@@ -19,7 +19,7 @@ public abstract class Evento {
     private Integer numeroMassimoPartecipanti;
     @OneToMany(mappedBy = "evento", cascade = CascadeType.REMOVE)
     private Set<Partecipazione> partecipazioni;
-    @OneToOne()
+    @ManyToOne()
     private Location location;
 
     //costruttori
