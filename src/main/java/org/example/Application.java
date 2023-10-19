@@ -40,7 +40,8 @@ public class Application {
         de.saveNewEvent(cc);
         de.saveNewEvent(dc);*/
         de.getConcertiInStreaming(false).forEach(System.out::println);
-
+        System.out.println("-----------------------------*------------------------------");
+        de.getConcertiByGenre(Genere.CLASSICO).forEach(System.out::println);
 
         em.close();
         efm.close();

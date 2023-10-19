@@ -2,6 +2,7 @@ package org.example.entities.classDao;
 
 import org.example.entities.Concerto;
 import org.example.entities.Evento;
+import org.example.entities.enumeratori.Genere;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -44,5 +45,10 @@ public class EventoDao {
         Query getAllStreamOrNoStreamQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :tf");
         getAllStreamOrNoStreamQuery.setParameter("tf", tf);
         return getAllStreamOrNoStreamQuery.getResultList();
+    }
+    public List<Concerto> getConcertiByGenre(Genere g){
+        Query findConcertiByGenre = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :g");
+        findConcertiByGenre.setParameter("g", g);
+        return findConcertiByGenre.getResultList();
     }
 }
