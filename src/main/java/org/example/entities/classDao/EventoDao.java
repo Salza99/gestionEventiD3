@@ -2,6 +2,7 @@ package org.example.entities.classDao;
 
 import org.example.entities.Concerto;
 import org.example.entities.Evento;
+import org.example.entities.PartitaDiCalcio;
 import org.example.entities.enumeratori.Genere;
 
 import javax.persistence.EntityManager;
@@ -50,5 +51,13 @@ public class EventoDao {
         Query findConcertiByGenre = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :g");
         findConcertiByGenre.setParameter("g", g);
         return findConcertiByGenre.getResultList();
+    }
+    public List<PartitaDiCalcio> getPartiteVinteInCasa(){
+        TypedQuery<PartitaDiCalcio> getPartiteVinteInCasa = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa", PartitaDiCalcio.class);
+        return getPartiteVinteInCasa.getResultList();
+    }
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta(){
+        TypedQuery<PartitaDiCalcio> getPartiteVinteInTrasferta = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraOspite", PartitaDiCalcio.class);
+        return getPartiteVinteInTrasferta.getResultList();
     }
 }
