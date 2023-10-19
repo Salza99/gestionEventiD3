@@ -22,6 +22,9 @@ public class Persona {
     @OneToMany(mappedBy = "persona", cascade = CascadeType.REMOVE)
     @OrderBy("id ASC")
     private List<Partecipazione> listaPartecipazioni;
+    @ManyToOne
+    @JoinColumn(nullable = true)
+    private GaraDiAtletica partecipanteGara;
 
 
     //costruttori

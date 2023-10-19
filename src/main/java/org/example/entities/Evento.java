@@ -1,13 +1,12 @@
 package org.example.entities;
 
-import org.example.entities.enumeratori.Type;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
 public abstract class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
