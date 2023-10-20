@@ -38,4 +38,13 @@ public class Concerto extends Evento{
     public void setInStreaming(boolean inStreaming) {
         this.inStreaming = inStreaming;
     }
+
+    @Override
+    public String toString() {
+
+        return super.toString() +
+                "genere=" + genere +
+                ", inStreaming=" + inStreaming +
+                '}';
+    }
 }

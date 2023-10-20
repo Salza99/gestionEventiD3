@@ -42,9 +42,9 @@ public class EventoDao {
             System.err.println("l'evento con id " + id + " non esiste");
         }
     }
-    public List<Concerto> getConcertiInStreaming(boolean tf){
+    public List<Concerto> getConcertiInStreaming(boolean isStreaming){
         Query getAllStreamOrNoStreamQuery = em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :tf");
-        getAllStreamOrNoStreamQuery.setParameter("tf", tf);
+        getAllStreamOrNoStreamQuery.setParameter("tf", isStreaming);
         return getAllStreamOrNoStreamQuery.getResultList();
     }
     public List<Concerto> getConcertiByGenre(Genere g){

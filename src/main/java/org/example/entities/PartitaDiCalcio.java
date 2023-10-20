@@ -5,7 +5,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "partita_di_calcio")
-
+//@NamedQuery(name = "getGameWinsByOwner", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraDiCasa")
+//@NamedQuery(name = "getGameWinsByGuests", query = "SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente = p.squadraOspite")
 public class PartitaDiCalcio extends Evento{
 
     @Column(name = "squadra_di_casa", length = 3)
@@ -71,5 +72,14 @@ public class PartitaDiCalcio extends Evento{
         this.nGolSquadraOspite = nGolSquadraOspite;
     }
 
-
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "squadraDiCasa='" + squadraDiCasa + '\'' +
+                ", squadraOspite='" + squadraOspite + '\'' +
+                ", squadraVincente='" + squadraVincente + '\'' +
+                ", nGolSquadraDiCasa=" + nGolSquadraDiCasa +
+                ", nGolSquadraOspite=" + nGolSquadraOspite +
+                '}';
+    }
 }
